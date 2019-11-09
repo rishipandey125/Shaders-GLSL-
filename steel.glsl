@@ -27,12 +27,12 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 			vec3 point_light = vec3(0.0,0.0,-10.0);
       float z = center.z - sqrt(pow(radius,2.0)-pow(cord.y-center.y,2.0));
       vec3 curr = vec3(cord,z);
-			vec3 light = normalize(point_light-curr);
+      vec3 light = normalize(point_light-curr);
       vec3 normal = normalize(curr-center);
       vec3 view = normalize(camera-curr);
-			vec3 steel = vec3(max(dot(normal,light),0.0))*vec3(1.0);
-			vec3 ref = -reflect(view,normal);
-			color = background(ref)*steel;
+      vec3 steel = vec3(max(dot(normal,light),0.0))*vec3(1.0);
+      vec3 ref = -reflect(view,normal);
+      color = background(ref)*steel;
     } else {
       color = background(vec3(cord,center.z+1.0));
     }
