@@ -36,17 +36,11 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
       vec3 light = normalize(point_light-curr);
       vec3 normal = normalize(curr-center);
       vec3 view = normalize(camera-curr);
-<<<<<<< HEAD
 			//steel shading
 			vec3 steel = vec3(max(dot(normal,light),0.0))*vec3(1.0);
 			//relfections shading
 			vec3 ref = -reflect(view,normal);
 			color = background(ref)*steel;
-=======
-      vec3 steel = vec3(max(dot(normal,light),0.0))*vec3(1.0);
-      vec3 ref = -reflect(view,normal);
-      color = background(ref)*steel;
->>>>>>> a7e5baa29b439578a69efaad519a636085641d20
     } else {
       color = background(vec3(cord,center.z+1.0));
     }
