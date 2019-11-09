@@ -15,8 +15,8 @@ vec3 background(vec3 cord) {
 }
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
-		vec3 color;
-		float aspect_ratio = iResolution.x/iResolution.y;
+    vec3 color;
+    float aspect_ratio = iResolution.x/iResolution.y;
     vec2 cord = (-1.0 + 2.0*fragCoord.xy / iResolution.xy) *
 		vec2(aspect_ratio, 1.0);
     vec3 center = vec3(0.0,0.2,0.0);
@@ -24,7 +24,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     center.x *= aspect_ratio;
     if (length(cord-vec2(center.x,center.y)) <= radius) {
       vec3 camera = vec3(0.0,0.0,-2.0);
-			vec3 point_light = vec3(0.0,0.0,-10.0);
+      vec3 point_light = vec3(0.0,0.0,-10.0);
       float z = center.z - sqrt(pow(radius,2.0)-pow(cord.y-center.y,2.0));
       vec3 curr = vec3(cord,z);
       vec3 light = normalize(point_light-curr);
